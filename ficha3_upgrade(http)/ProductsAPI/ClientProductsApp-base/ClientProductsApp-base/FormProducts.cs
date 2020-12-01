@@ -18,6 +18,7 @@ using System.Xml;
 using System.Xml.Xsl;
 using System.Xml.XPath;
 using System.IO;
+using System.Xml.Linq;
 
 //JavaScriptSerializer --> necessário criar referencia para System.Web.Extensions
 
@@ -197,27 +198,39 @@ namespace ClientProductsApp
         //XML
         private void button1_Click(object sender, EventArgs e)
         {
-            // Load the style sheet.
-            XslCompiledTransform xslt = new XslCompiledTransform();
-            xslt.Load("C:/Users/tmati/Documents/tests/ficha3_upgrade(http)/ProductsAPI/output.xsl");
+            /*            // Load the style sheet.
+                        XslCompiledTransform xslt = new XslCompiledTransform();
+                        xslt.Load("C:/Users/tmati/Documents/tests/ficha3_upgrade(http)/ProductsAPI/output.xsl");
 
-            MessageBox.Show("1");
+                        XPathDocument xDoc = new XPathDocument("C:/Users/tmati/Documents/tests/ficha3_upgrade(http)/ProductsAPI/books.xml"); 
+                        XmlTextWriter writer = new XmlTextWriter("books.html", null);
 
-            XPathDocument xDoc = new XPathDocument("C:/Users/tmati/Documents/tests/ficha3_upgrade(http)/ProductsAPI/books.xml"); 
-            XmlTextWriter writer = new XmlTextWriter("books.html", null);
+                        // Execute the transform and output the results to a file.
+                        xslt.Transform(xDoc, null, writer, new XmlUrlResolver());
 
-            MessageBox.Show("2");
+                        writer.Close();
+                        StreamReader stream = new StreamReader("books.html");
+                        Console.Write(stream.ReadToEnd());*/
 
-            // Execute the transform and output the results to a file.
-            xslt.Transform(xDoc, null, writer, new XmlUrlResolver());
 
-            MessageBox.Show("3");
+            string tmp = "<book><title>The Autobiography of Benjamin Franklin</title><author><first-name>Benjamin</first-name><last-name>Franklin</last-name></author><price>8.99</price></book>";
+            StringBuilder sbXslOutput = new StringBuilder();
 
-            writer.Close();
-            StreamReader stream = new StreamReader("books.html");
-            Console.Write(stream.ReadToEnd());
+            using (XmlWriter xslWriter = XmlWriter.Create(sbXslOutput))
+            {
+                XslCompiledTransform transformer = new XslCompiledTransform();
+                transformer.Load("C:/Users/tmati/Documents/tests/ficha3_upgrade(http)/ProductsAPI/output.xsl");
+                XsltArgumentList args = new XsltArgumentList();
 
-            MessageBox.Show("4");
+                XmlDocument doc = new XmlDocument();
+                doc.LoadXml(tmp);
+
+                transformer.Transform(doc, args, xslWriter);
+            }
+
+            string dataSetHtml = sbXslOutput.ToString();
+
+            MessageBox.Show(dataSetHtml);
         }
     }
 
