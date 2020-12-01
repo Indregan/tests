@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  <xsl:template match = "/" >
+
+    <html>
+      <head>
+        <title>A list of books</title>
+      </head>
+      <style>
+        .headerClass { background-color=#ffeedd; }
+      </style>
+      <body>
+        <B>List of books</B>
+        <table border="1">
+          <tr>
+            <td class="headerClass">Title</td>
+            <td class="headerClass">Author</td>
+            <td class="headerClass">Price</td>
+          </tr>
+          <xsl:for-each select="//books/book">
+            <tr>
+              <td>
+                <xsl:value-of select="title"/>
+              </td>
+              <td>
+                <xsl:value-of select="author"/>
+              </td>
+              <td>
+                <xsl:value-of select="price"/>
+              </td>
+            </tr>
+          </xsl:for-each>
+        </table>
+      </body>
+    </html>
+
+  </xsl:template>
+</xsl:stylesheet>

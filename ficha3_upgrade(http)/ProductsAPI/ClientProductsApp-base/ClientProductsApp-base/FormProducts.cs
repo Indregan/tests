@@ -13,6 +13,12 @@ using System.Threading.Tasks;
 using System.Web.Script.Serialization;
 using System.Windows.Forms;
 
+//XML
+using System.Xml;
+using System.Xml.Xsl;
+using System.Xml.XPath;
+using System.IO;
+
 //JavaScriptSerializer --> necessário criar referencia para System.Web.Extensions
 
 namespace ClientProductsApp
@@ -186,6 +192,32 @@ namespace ClientProductsApp
         private void buttonPost_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        //XML
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // Load the style sheet.
+            XslCompiledTransform xslt = new XslCompiledTransform();
+            xslt.Load("C:/Users/tmati/Documents/tests/ficha3_upgrade(http)/ProductsAPI/output.xsl");
+
+            MessageBox.Show("1");
+
+            XPathDocument xDoc = new XPathDocument("C:/Users/tmati/Documents/tests/ficha3_upgrade(http)/ProductsAPI/books.xml"); 
+            XmlTextWriter writer = new XmlTextWriter("books.html", null);
+
+            MessageBox.Show("2");
+
+            // Execute the transform and output the results to a file.
+            xslt.Transform(xDoc, null, writer, new XmlUrlResolver());
+
+            MessageBox.Show("3");
+
+            writer.Close();
+            StreamReader stream = new StreamReader("books.html");
+            Console.Write(stream.ReadToEnd());
+
+            MessageBox.Show("4");
         }
     }
 
