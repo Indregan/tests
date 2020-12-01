@@ -1,0 +1,75 @@
+IS - Pratica
+(1/10/2020)
+
+REST Web Services Porto 80 stateless = web scability
+(mais disponivel por ter um porto especifico para a tarefa
+|     |
+|     |->HTTP -> Header
+DB	      -> Body (args + retorno)
+|
+|
+|
+|------>GET  .../.../customers/1 (vai buscar a BD, como em AINET a ir buscar as tabelas)
+	POST + resource (eg: http://site.com/api/customers
+	PUT
+	DELETE
+
+	HTTP
+client 	->	Web Service
+Browser
+curl
+Postman
+	<-
+	Sync
+
+
+1º
+Criar projeto, ASP NET Web Application (.NET Framework)
+(seguir a ficha)
+
+2º
+Criar uma class dentro da pasta 'Models'
+
+3º
+Em cima da pasta controller, add controller (1º opcao)
+
+4º
+dar run, e vai aparecer HTTP error 403.14
+
+5º
+depois de adicionar rotas, tudo a funcionar
+
+6º
+Fazer o search by category
+reciclar o codigo, no index.html do div do find e do find()
+para funcionar é necessário fazer um ciclo for dentro do findCat()
+
+
+7º
+por codigo em comentário
+
+8º
+criar uma base de dados na pasta App_Data
+criar uma tabela e adicionar entradas
+
+
+
+--------------------------------
+(8-10-2020)
+Connectar a base de dados:
+propriedades, setings
+
+ir as seting e adicionar a chave da base de dados
+
+Usar o post atraves do postman
+por o metodo POST
+adicionar json
+no BODY
+codigo que esta na pasta Models
+introduzir codigo
+{"Id":1000, "name" : "abc", "Category" ; "Toys", "Price":12.650}
+
+
+
+
+

@@ -1,0 +1,9 @@
+IS - Pratica
+(15-10-2020)
+
+
+Acabar a ficha 3
+Testar as configurações com um cliente (codigo sacado do moddle)
+
+adicionar uma referencia
+e testar com 2 instancias, uma com o servidor e outra com o cliente
