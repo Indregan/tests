@@ -269,3 +269,17 @@ C:\Users\tmati\Documents\tests\ficha3_upgrade(http)\ProductsAPI\ProductsAPI\obj\
 C:\Users\tmati\Documents\tests\ficha3_upgrade(http)\ProductsAPI\ProductsAPI\obj\Debug\ProductsAPI.csproj.CopyComplete
 C:\Users\tmati\Documents\tests\ficha3_upgrade(http)\ProductsAPI\ProductsAPI\obj\Debug\ProductsAPI.dll
 C:\Users\tmati\Documents\tests\ficha3_upgrade(http)\ProductsAPI\ProductsAPI\obj\Debug\ProductsAPI.pdb
+C:\Users\tmati\Documents\tests\ficha3_upgrade(http)\ProductsAPI\ProductsAPI\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\tmati\Documents\tests\ficha3_upgrade(http)\ProductsAPI\ProductsAPI\bin\System.Web.Helpers.dll
+C:\Users\tmati\Documents\tests\ficha3_upgrade(http)\ProductsAPI\ProductsAPI\bin\System.Web.Mvc.dll
+C:\Users\tmati\Documents\tests\ficha3_upgrade(http)\ProductsAPI\ProductsAPI\bin\System.Web.Razor.dll
+C:\Users\tmati\Documents\tests\ficha3_upgrade(http)\ProductsAPI\ProductsAPI\bin\System.Web.WebPages.Deployment.dll
+C:\Users\tmati\Documents\tests\ficha3_upgrade(http)\ProductsAPI\ProductsAPI\bin\System.Web.WebPages.dll
+C:\Users\tmati\Documents\tests\ficha3_upgrade(http)\ProductsAPI\ProductsAPI\bin\System.Web.WebPages.Razor.dll
+C:\Users\tmati\Documents\tests\ficha3_upgrade(http)\ProductsAPI\ProductsAPI\bin\System.Web.Helpers.xml
+C:\Users\tmati\Documents\tests\ficha3_upgrade(http)\ProductsAPI\ProductsAPI\bin\System.Web.Mvc.xml
+C:\Users\tmati\Documents\tests\ficha3_upgrade(http)\ProductsAPI\ProductsAPI\bin\System.Web.Razor.xml
+C:\Users\tmati\Documents\tests\ficha3_upgrade(http)\ProductsAPI\ProductsAPI\bin\System.Web.WebPages.xml
+C:\Users\tmati\Documents\tests\ficha3_upgrade(http)\ProductsAPI\ProductsAPI\bin\System.Web.WebPages.Deployment.xml
+C:\Users\tmati\Documents\tests\ficha3_upgrade(http)\ProductsAPI\ProductsAPI\bin\System.Web.WebPages.Razor.xml
+C:\Users\tmati\Documents\tests\ficha3_upgrade(http)\ProductsAPI\ProductsAPI\obj\Debug\ProductsAPI.csprojAssemblyReference.cache

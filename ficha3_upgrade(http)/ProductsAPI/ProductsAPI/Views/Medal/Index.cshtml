@@ -1,0 +1,11 @@
+﻿@using ProductsAPI.MedalHTMLHelper
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@MedalHTMLHelper.RenderXMLData(ViewBag.Medals as string, Server.MapPath("Data/Medals.xslt"))
+

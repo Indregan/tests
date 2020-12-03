@@ -16,7 +16,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A1F14028-FF1D-46E3-BD73-6C286845FAE7}"
 	ProjectSection(SolutionItems) = preProject
 		books.xml = books.xml
+		medal.xml = medal.xml
+		medal.xsl = medal.xsl
 		output.xsl = output.xsl
+		testFiles\Sample-JSON-file.json = testFiles\Sample-JSON-file.json
 	EndProjectSection
 EndProject
 Global
