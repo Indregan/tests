@@ -1,0 +1,36 @@
+﻿@model ProductsAPI.Models.UsersJason
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<table style="width:100%">
+
+    <thead>
+
+    </thead>
+
+    <tbody>
+
+        @foreach (var item in Model.users)
+        {
+            <tr>
+                <td>@Html.DisplayNameFor(modelItem => item.UserId)</td>
+            </tr>
+@*            <tr>
+                <td>Jill</td>
+                <td>Smith</td>
+                <td>50</td>
+            </tr>*@
+        }
+
+    </tbody>
+
+</table>
+
