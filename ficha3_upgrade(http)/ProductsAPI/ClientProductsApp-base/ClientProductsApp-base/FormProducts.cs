@@ -20,6 +20,7 @@ using System.Xml.XPath;
 using System.IO;
 using System.Xml.Linq;
 
+
 //JavaScriptSerializer --> necessário criar referencia para System.Web.Extensions
 
 namespace ClientProductsApp
@@ -198,39 +199,34 @@ namespace ClientProductsApp
         //XML
         private void button1_Click(object sender, EventArgs e)
         {
-            /*            // Load the style sheet.
-                        XslCompiledTransform xslt = new XslCompiledTransform();
-                        xslt.Load("C:/Users/tmati/Documents/tests/ficha3_upgrade(http)/ProductsAPI/output.xsl");
+            XDocument xmlDocument = XDocument.Load(@"C:\Users\tmati\Documents\tests\ficha3_upgrade(http)\ProductsAPI\Employee.xml"); //PATH TEM DE SER DINAMICO
 
-                        XPathDocument xDoc = new XPathDocument("C:/Users/tmati/Documents/tests/ficha3_upgrade(http)/ProductsAPI/books.xml"); 
-                        XmlTextWriter writer = new XmlTextWriter("books.html", null);
+            XDocument result = new XDocument
+                (new XElement("table", new XAttribute("border", 1),
+                    new XElement("thead",
+                        new XElement("tr",
+                            new XElement("th", "Department"),
+                            new XElement("th", "Name"),
+                            new XElement("th", "Gender"),
+                            new XElement("th", "Salary"))),
+                    new XElement("tbody",
+                        from emp in xmlDocument.Descendants("Employee")
+                        select new XElement("tr",
+                                        new XElement("td", emp.Attribute("Department").Value),    //new XElement("td", emp.Attribute("Department")?.Value ?? ""),
+                                        new XElement("td", emp.Element("Name").Value),
+                                        new XElement("td", emp.Element("Gender").Value),
+                                        new XElement("td", emp.Element("Salary").Value)))));
 
-                        // Execute the transform and output the results to a file.
-                        xslt.Transform(xDoc, null, writer, new XmlUrlResolver());
+            //se file já existe, dizer q já foi criado
 
-                        writer.Close();
-                        StreamReader stream = new StreamReader("books.html");
-                        Console.Write(stream.ReadToEnd());*/
+            result.Save(@"C:\Users\tmati\Documents\tests\ficha3_upgrade(http)\ProductsAPI\Employee.htm"); //PATH TEM DE SER DINAMICO
 
+            MessageBox.Show("html criado");
+        }
 
-            string tmp = "<book><title>The Autobiography of Benjamin Franklin</title><author><first-name>Benjamin</first-name><last-name>Franklin</last-name></author><price>8.99</price></book>";
-            StringBuilder sbXslOutput = new StringBuilder();
+        private void FormProducts_Load(object sender, EventArgs e)
+        {
 
-            using (XmlWriter xslWriter = XmlWriter.Create(sbXslOutput))
-            {
-                XslCompiledTransform transformer = new XslCompiledTransform();
-                transformer.Load("C:/Users/tmati/Documents/tests/ficha3_upgrade(http)/ProductsAPI/output.xsl");
-                XsltArgumentList args = new XsltArgumentList();
-
-                XmlDocument doc = new XmlDocument();
-                doc.LoadXml(tmp);
-
-                transformer.Transform(doc, args, xslWriter);
-            }
-
-            string dataSetHtml = sbXslOutput.ToString();
-
-            MessageBox.Show(dataSetHtml);
         }
     }
 

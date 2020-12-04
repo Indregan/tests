@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Employees>
+  <Employee Department = "IT">
+    <Name>Jaipal</Name>
+    <Gender>Male</Gender>
+    <Salary>18000</Salary>
+  </Employee>
+  <Employee Department = "Accounts">
+    <Name>Jayanth</Name>
+    <Gender>Male</Gender>
+    <Salary>12000</Salary>
+  </Employee>
+  <Employee Department = "HR">
+    <Name>Tejaswini</Name>
+    <Gender>Female</Gender>
+    <Salary>15000</Salary>
+  </Employee>
+</Employees>

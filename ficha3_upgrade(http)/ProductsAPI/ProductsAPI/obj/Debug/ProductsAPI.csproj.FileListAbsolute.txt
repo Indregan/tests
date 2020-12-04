@@ -269,3 +269,4 @@ C:\Users\tmati\Documents\tests\ficha3_upgrade(http)\ProductsAPI\ProductsAPI\obj\
 C:\Users\tmati\Documents\tests\ficha3_upgrade(http)\ProductsAPI\ProductsAPI\obj\Debug\ProductsAPI.csproj.CopyComplete
 C:\Users\tmati\Documents\tests\ficha3_upgrade(http)\ProductsAPI\ProductsAPI\obj\Debug\ProductsAPI.dll
 C:\Users\tmati\Documents\tests\ficha3_upgrade(http)\ProductsAPI\ProductsAPI\obj\Debug\ProductsAPI.pdb
+C:\Users\tmati\Documents\tests\ficha3_upgrade(http)\ProductsAPI\ProductsAPI\obj\Debug\ProductsAPI.csprojAssemblyReference.cache

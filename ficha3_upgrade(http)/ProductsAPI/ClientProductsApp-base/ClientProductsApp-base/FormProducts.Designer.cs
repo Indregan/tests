@@ -216,6 +216,7 @@
             this.Controls.Add(this.buttonGetAll);
             this.Name = "FormProducts";
             this.Text = "RESTFull client application - Products";
+            this.Load += new System.EventHandler(this.FormProducts_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
