@@ -1,4 +1,4 @@
-﻿<?xml version='1.0'?>
+<?xml version='1.0'?>
 <!-- This file represents a fragment of a book store inventory database -->
 <bookstore>
   <book genre="autobiography" publicationdate="1981" ISBN="1-861003-11-0">

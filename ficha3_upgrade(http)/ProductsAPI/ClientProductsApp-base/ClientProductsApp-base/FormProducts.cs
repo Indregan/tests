@@ -198,39 +198,22 @@ namespace ClientProductsApp
         //XML
         private void button1_Click(object sender, EventArgs e)
         {
-            /*            // Load the style sheet.
-                        XslCompiledTransform xslt = new XslCompiledTransform();
-                        xslt.Load("C:/Users/tmati/Documents/tests/ficha3_upgrade(http)/ProductsAPI/output.xsl");
+            // Load the style sheet.
+            XslCompiledTransform xslt = new XslCompiledTransform();
+            xslt.Load(@"C:\Users\tmati\Documents\tests\ficha3_upgrade(http)\ProductsAPI\generic.xsl"); //TEM DE ABRIR de um path GENERICO
 
-                        XPathDocument xDoc = new XPathDocument("C:/Users/tmati/Documents/tests/ficha3_upgrade(http)/ProductsAPI/books.xml"); 
-                        XmlTextWriter writer = new XmlTextWriter("books.html", null);
+            XPathDocument xDoc = new XPathDocument(@"C:\Users\tmati\Documents\tests\ficha3_upgrade(http)\ProductsAPI\books.xml");   //TEM DE ABRIR QUALQUER DOC xml
+            XmlTextWriter writer = new XmlTextWriter("output.html", null);
 
-                        // Execute the transform and output the results to a file.
-                        xslt.Transform(xDoc, null, writer, new XmlUrlResolver());
+            // Execute the transform and output the results to a file.
+            xslt.Transform(xDoc, null, writer, new XmlUrlResolver());
+            writer.Close();
+            StreamReader stream = new StreamReader("output.html");
 
-                        writer.Close();
-                        StreamReader stream = new StreamReader("books.html");
-                        Console.Write(stream.ReadToEnd());*/
+            //ESCREVER PARA UMA PASTA dos outputs !!!!
+            File.WriteAllText(@"C:\Users\tmati\Documents\tests\ficha3_upgrade(http)\ProductsAPI\books.html", stream.ReadToEnd());
 
-
-            string tmp = "<book><title>The Autobiography of Benjamin Franklin</title><author><first-name>Benjamin</first-name><last-name>Franklin</last-name></author><price>8.99</price></book>";
-            StringBuilder sbXslOutput = new StringBuilder();
-
-            using (XmlWriter xslWriter = XmlWriter.Create(sbXslOutput))
-            {
-                XslCompiledTransform transformer = new XslCompiledTransform();
-                transformer.Load("C:/Users/tmati/Documents/tests/ficha3_upgrade(http)/ProductsAPI/output.xsl");
-                XsltArgumentList args = new XsltArgumentList();
-
-                XmlDocument doc = new XmlDocument();
-                doc.LoadXml(tmp);
-
-                transformer.Transform(doc, args, xslWriter);
-            }
-
-            string dataSetHtml = sbXslOutput.ToString();
-
-            MessageBox.Show(dataSetHtml);
+            MessageBox.Show("conversão concluida");
         }
     }
 
