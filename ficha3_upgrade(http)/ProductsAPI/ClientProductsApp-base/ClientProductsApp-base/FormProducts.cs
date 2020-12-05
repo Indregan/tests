@@ -19,6 +19,7 @@ using System.Xml.Xsl;
 using System.Xml.XPath;
 using System.IO;
 using System.Xml.Linq;
+using Newtonsoft.Json;
 
 //JavaScriptSerializer --> necessário criar referencia para System.Web.Extensions
 
@@ -203,17 +204,51 @@ namespace ClientProductsApp
             xslt.Load(@"C:\Users\tmati\Documents\tests\ficha3_upgrade(http)\ProductsAPI\generic.xsl"); //TEM DE ABRIR de um path GENERICO
 
             XPathDocument xDoc = new XPathDocument(@"C:\Users\tmati\Documents\tests\ficha3_upgrade(http)\ProductsAPI\books.xml");   //TEM DE ABRIR QUALQUER DOC xml
-            XmlTextWriter writer = new XmlTextWriter("output.html", null);
+            //XmlTextWriter writer = new XmlTextWriter("outputXML.html", null);
 
-            // Execute the transform and output the results to a file.
-            xslt.Transform(xDoc, null, writer, new XmlUrlResolver());
-            writer.Close();
-            StreamReader stream = new StreamReader("output.html");
+            using (XmlTextWriter writer = new XmlTextWriter("outputXML.html", null))
+            {
+                // Execute the transform and output the results to a file.
+                xslt.Transform(xDoc, null, writer, new XmlUrlResolver());
+                writer.Close();
+            }
 
-            //ESCREVER PARA UMA PASTA dos outputs !!!!
-            File.WriteAllText(@"C:\Users\tmati\Documents\tests\ficha3_upgrade(http)\ProductsAPI\books.html", stream.ReadToEnd());
+            using (StreamReader stream = new StreamReader("outputXML.html"))
+            {
+                //ESCREVER PARA UMA PASTA dos outputs !!!!
+                File.WriteAllText(@"C:\Users\tmati\Documents\tests\ficha3_upgrade(http)\ProductsAPI\outputXML.html", stream.ReadToEnd());
 
-            MessageBox.Show("conversão concluida");
+                MessageBox.Show("conversão concluida");
+            }
+            
+        }
+
+        //JSON
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string jsonFile = File.ReadAllText(@"C:\Users\tmati\Documents\tests\ficha3_upgrade(http)\ProductsAPI\testFiles\Sample-JSON-file.json"); //TEM DE ABRIR QUALQUER DOC json
+
+            // To convert JSON text contained in string json into an XML node
+            XmlDocument xDoc = (XmlDocument)JsonConvert.DeserializeXmlNode(jsonFile, "output"); //using Newtonsoft.Json;
+
+            // Load the style sheet.
+            XslCompiledTransform xslt = new XslCompiledTransform();
+            xslt.Load(@"C:\Users\tmati\Documents\tests\ficha3_upgrade(http)\ProductsAPI\generic.xsl"); //TEM DE ABRIR de um path GENERICO
+
+            using (XmlTextWriter writer = new XmlTextWriter("outputJSON.html", null))
+            {
+                // Execute the transform and output the results to a file.
+                xslt.Transform(xDoc, null, writer, new XmlUrlResolver());
+                writer.Close();
+            }
+
+            using (StreamReader stream = new StreamReader("outputJSON.html"))
+            {
+                //ESCREVER PARA UMA PASTA dos outputs !!!!
+                File.WriteAllText(@"C:\Users\tmati\Documents\tests\ficha3_upgrade(http)\ProductsAPI\outputJSON.html", stream.ReadToEnd());
+
+                MessageBox.Show("conversão concluida");
+            }
         }
     }
 
