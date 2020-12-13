@@ -250,6 +250,115 @@ namespace ClientProductsApp
                 MessageBox.Show("conversão concluida");
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            /*            String strID = textBoxID.Text;
+                        String strName = textBoxName.Text;
+                        String strCategory = textBoxCategory.Text;
+                        String strPrice = textBoxPrice.Text;
+
+                        Product p = new Product();
+                        p.Id = Convert.ToInt32(strID);
+                        p.Name = strName;
+                        p.Category = strCategory;
+                        p.Price = decimal.Parse(strPrice);*/
+
+            string postUrl = "http://localhost:59072/jsonEndpoint";
+
+            string jsonFile = File.ReadAllText(@"C:\Users\tmati\Documents\tests\ficha3_upgrade(http)\ProductsAPI\testFiles\Sample-JSON-file.json"); //TEM DE ABRIR QUALQUER DOC json
+
+
+            IRestClient client = new RestClient();
+            IRestRequest request = new RestRequest()
+            {
+                Resource = postUrl
+            };
+
+            request.AddHeader("Content-Type", "application/json");
+            request.AddHeader("Accept", "application/json");//xml
+            request.AddJsonBody(jsonFile);
+
+            var response = client.Post(request);
+
+            if (response.StatusCode != HttpStatusCode.OK)
+            {
+                MessageBox.Show("Erro....");
+                Console.WriteLine(response.Content);
+            }
+            else
+            {
+                MessageBox.Show("Guardado...");
+                Console.WriteLine(response.Content);
+            }
+        }
+
+        /*        private void button4_Click(object sender, EventArgs e)
+                {
+                    string postUrl = "http://localhost:59072/jsonEndpoint";
+
+                    string stringXML = "<books><book><title>title</title><author>Tom</author><price>19.95</price></book></books>";
+
+
+                    IRestClient client = new RestClient();
+                    IRestRequest request = new RestRequest()
+                    {
+                        Resource = postUrl
+                    };
+
+                    request.AddHeader("Content-Type", "application/xml");
+                    request.AddHeader("Accept", "application/xml");//xml
+                    request.AddParameter("XmlBody", stringXML, ParameterType.RequestBody);
+
+                    IRestResponse response = client.Post(request); 
+
+                    if (response.StatusCode != HttpStatusCode.OK)
+                    {
+                        MessageBox.Show("Erro....");
+                        Console.WriteLine(response.Content);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Guardado...");
+                        Console.WriteLine(response.Content);
+                    }
+                }*/
+
+        public string postXMLData()
+        {
+            string postUrl = "http://localhost:59072";
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(postUrl);
+
+            //string stringXML = "<books><book><title>title</title><author>Tom</author><price>19.95</price></book></books>";
+
+            string xmlFile = File.ReadAllText(@"C:\Users\tmati\Documents\tests\ficha3_upgrade(http)\ProductsAPI\books.xml");
+
+
+            byte[] bytes;
+            bytes = System.Text.Encoding.ASCII.GetBytes(xmlFile);
+            request.ContentType = "text/xml; encoding='utf-8'";
+            request.ContentLength = bytes.Length;
+            request.Method = "POST";
+            Stream requestStream = request.GetRequestStream();
+            requestStream.Write(bytes, 0, bytes.Length);
+            requestStream.Close();
+            HttpWebResponse response;
+            response = (HttpWebResponse)request.GetResponse();
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                Stream responseStream = response.GetResponseStream();
+                string responseStr = new StreamReader(responseStream).ReadToEnd();
+                return responseStr;
+            }
+            return null;
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            postXMLData();
+        }
+
     }
 
 }
