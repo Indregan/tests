@@ -28,7 +28,7 @@ namespace ProductsAPI
 
         // GET: api/Products
         //devolve tudo
-        [HttpGet]
+/*        [HttpGet]
         public IEnumerable<Product> GetAllProducts()
         {
             //return products;
@@ -68,7 +68,7 @@ namespace ProductsAPI
             }
             return products;
 
-        }
+        }*/
 
 
         // GET: api/Products/5
@@ -188,7 +188,7 @@ namespace ProductsAPI
 
 
         // POST: api/Products
-      
+/*      
         
         public IHttpActionResult PostProduct(Product p)
         {
@@ -216,7 +216,7 @@ namespace ProductsAPI
             }
 
             return Ok(nRows);
-        }
+        }*/
 
         // PUT: api/Products/5
         [Route("api/products/{id:int}")]
